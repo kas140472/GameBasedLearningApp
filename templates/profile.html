@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="/static/style1.css"> 
+</head>
+<body>
+   <div style="display: flex; align-items: center;">
+    <h1 style="color:white; text-align: center; font-size: 32px;">Welcome, {{ name }}</h1>
+    <img src="/static/san.jpeg" alt="Cartoon Character" style="width: 24px; height: 24px; margin-left: 8px;">
+</div>
+
+    <h2 style="color:red;">Your Points: {{ user_data.points }}</h2>
+    <h3 style="color:white;">Modules</h3>
+    <ul>
+        <li style="color:white;"><a href="{{ url_for('module1') }}">Module 1</a></li>
+        <!-- Additional modules can be added here -->
+    </ul>
+<p ><a href="{{ url_for('index') }}">Back to Home</a></p>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title style="color:white;">Module 1</title>
+</head>
+<body>
+    <h1 style="color:white;"> Module 1</h1>
+    <form action="/module1" method="post">
+        <button type="submit">Start Game</button>
+    </form>
+
+<button id="completeModuleBtn">Complete Module</button>
+<script>
+document.getElementById('completeModuleBtn').addEventListener('click', () => {
+    // Logic to increment points for the current user
+    const currentUser = '{{ session.get('name') }}'; // Pass the current user's name from Flask
+    if (currentUser) {
+        users[currentUser]['points'] += 10;
+        // Select a random user to receive a bonus
+        const bonusUser = Object.keys(users).find(key => key !== currentUser);
+        if (bonusUser) {
+            users[bonusUser]['points'] += 5;
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+    fetch('{{ url_for("leaderboard_json") }}')
+        .then(response => response.json())
+        .then(data => {
+            // Process the leaderboard data here
+            console.log(data); // Example: log the data to the console
+        })
+        .catch(error => console.error('Error fetching leaderboard:', error));
+});
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skill-Based Game</title>
+    <link rel="stylesheet" href="/static/style.css"> 
+    <a href="{{ url_for('leaderboard_json') }}">View Leaderboard</a>
+    
+
+
+</head>
+<body>
+    <div class="content-wrapper">
+        <h1 style="color:orange; margin-top: 200px; font-family: 'Courier New', monospace; font-size: 5em;"> Quest Learn</h1>
+
+        <form action="/" method="post">
+            <label for="name" style="color: orange;">Enter your name:</label>
+            <input type="text" id="name" name="name" required style="border: 1px solid orange;">
+            <button type="submit" style="background-color: orange; color: white;">Start</button>
+
+        </form>
+        <div id="leaderboard"></div> <!-- Leaderboard container -->
+    </body>
+</html>

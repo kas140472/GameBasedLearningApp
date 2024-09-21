@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard</title>
+    <style>
+    body {
+        background-color: #f0f0f0; /* Light gray background */
+    }
+
+    #leaderboard li {
+        display: block;
+    }
+</style>
+</head>
+<body>
+    <h1>Leaderboard</h1>
+    <ul id="leaderboard"></ul>
+    
+   
+    <script src="{{ url_for('static', filename='leaderboard.js') }}"></script>
+</body>
+</html>

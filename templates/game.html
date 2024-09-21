@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game</title>
+</head>
+<body>
+    <h1>Guess where Jiraiya sensei is hiding?</h1>
+    <!-- Displaying the image -->
+    <img src="{{ url_for('static', filename='pic1.jpeg') }}" alt="Game Image" style="width: 300px; height: auto;">
+
+    <!-- Form for coordinates input -->
+    <form action="/game" method="post">
+        <label for="input_x">Enter X:</label>
+        <input type="number" id="input_x" name="input_x" required>
+        <label for="input_y">Enter Y:</label>
+        <input type="number" id="input_y" name="input_y" required>
+        <button type="submit">Submit</button>
+    </form>
+
+    <!-- Form for answer input (shown conditionally) -->
+    {% if show_second_field %}
+    <form action="/game" method="post">
+        <input type="hidden" name="input_x" value="{{ request.form.get('input_x') }}">
+        <input type="hidden" name="input_y" value="{{ request.form.get('input_y') }}">
+        <label for="answer">Enter your answer:</label>
+        <input type="text" id="answer" name="answer" required><br>
+        <button type="submit">Submit Answer</button>
+    </form>
+    {% endif %}
+
+    <!-- Display feedback message -->
+    <p>{{ feedback }}</p>
+    <p><a href="{{ url_for('profile') }}">Back to Profile</a></p>
+</body>
+</html>
